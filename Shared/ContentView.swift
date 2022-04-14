@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack {
+            Image("gu")
+                //リサイズを指定
+                .resizable()
+                //アスペクト比を修正
+                .aspectRatio(contentMode: .fit)
+            Text("グー")
+            Button("じゃんけんをする!") {
+                print("タップされたよ!")
+            }
+        }
     }
 }
 
