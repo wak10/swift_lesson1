@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var answerNumber = 0
     var body: some View {
-        
         VStack {
-            Image("gu")
-                //リサイズを指定
-                .resizable()
-                //アスペクト比を修正
-                .aspectRatio(contentMode: .fit)
-            Text("グー")
+            
+            if answerNumber == 0 {
+                Text("これからじゃんけんをします")
+            }else if answerNumber == 1 {
+                Image("gu")
+                    //リサイズを指定
+                    .resizable()
+                    //アスペクト比を修正
+                    .aspectRatio(contentMode: .fit)
+                Text("グー")
+            }else if answerNumber == 2 {
+                Image("choki")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Text("チョキ")
+            }else{
+                Image("pa")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Text("パー")
+            }
+            
             Button("じゃんけんをする!") {
-                print("タップされたよ!")
+                answerNumber = Int.random(in:1...3)
             }
         }
     }
